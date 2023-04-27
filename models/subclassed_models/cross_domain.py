@@ -109,7 +109,7 @@ class CrossDomainNet(Model):
     def __init__(
             self,
             domain_sequence='KIKI',
-            data_consistency_mode='measurements_residual',
+            data_consistency_mode='other',
             i_buffer_mode=False,
             k_buffer_mode=False,
             i_buffer_size=1,
@@ -219,7 +219,7 @@ class CrossDomainNet(Model):
         # NOTE: this i //2 suggest alternating domains, this will need
         # evolve if we want non-alternating domains. This needs to be
         # clear in the docs.
-        kspace_buffer = self.kspace_net[i_domain//2](kspace_buffer)
+        #kspace_buffer = self.kspace_net[i_domain//2](kspace_buffer)
         return  kspace_buffer
 
     def i_domain_correction(self, i_domain, image_buffer, kspace_buffer, mask, smaps, *op_args):
